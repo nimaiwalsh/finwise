@@ -102,7 +102,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1.1.1
         with:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLEPLAY_SERVICE_ACCOUNT }}
-          packageName: com.ittybittyapps.apptemplate
+          packageName: com.finwise
           releaseFiles: bundle/release/app-release.aab
           track: internal
           status: draft

@@ -15,7 +15,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "app_template"
+rootProject.name = "finwise"
 include(":app")
 include(":core:data")
 include(":core:datastore")

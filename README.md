@@ -6,7 +6,7 @@ A template Android Application Project.
 ### Altering the project name and namespace
 
 Several project files refer to the "Android App Template", and each Kotlin file declares itself part
-of the `com.ittybittyapps.apptemplate.android` package. Update these files to suit the client's new
+of the `com.finwise` package. Update these files to suit the client's new
 application.
 
 - In `app/build.gradle`, modify `android.namespace` and `android.defaultConfig.applicationId`.
@@ -14,8 +14,8 @@ application.
 - Rename the app's themes in `Theme.kt` and `themes.xml`.
 - In `strings.xml`, set the `app_name` string resource.
 - Update the package declarations in all Kotlin files by performing a project-wide find and
-  replace of `com.ittybittyapps.apptemplate.android`.
-- Update the package name `com.ittybittyapps.apptemplate` in `continuous-deployment.yml`.
+  replace of `com.finwise`.
+- Update the package name `com.finwise` in `continuous-deployment.yml`.
 
 ### Generate Keystore
 - See [Generate keystore](https://developer.android.com/studio/publish/app-signing) for instructions

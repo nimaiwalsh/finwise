@@ -1,6 +1,6 @@
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.ittybittyapps.apptemplate.android.configureGradleManagedDevices
-import com.ittybittyapps.apptemplate.android.configureKotlinAndroid
+import com.finwise.android.configureGradleManagedDevices
+import com.finwise.android.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

@@ -1,6 +1,6 @@
 plugins {
-    id("ittybittyapps.android.library")
-    id("ittybittyapps.android.library.compose")
+    id("finwise.library")
+    id("finwise.library.compose")
 }
 
 android {
@@ -10,7 +10,7 @@ android {
     lint {
         checkDependencies = true
     }
-    namespace = "com.ittybittyapps.apptemplate.core.ui"
+    namespace = "com.finwise.core.ui"
 }
 
 dependencies {

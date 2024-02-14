@@ -1,7 +1,7 @@
 plugins {
     `kotlin-dsl`
 }
-group = "com.ittybittyapps.apptemplate.buildlogic"
+group = "com.finwise.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -16,27 +16,27 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplicationCompose") {
-            id = "ittybittyapps.android.application.compose"
+            id = "finwise.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("androidApplication") {
-            id = "ittybittyapps.android.application"
+            id = "finwise.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = "ittybittyapps.android.library.compose"
+            id = "finwise.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
         register("androidLibrary") {
-            id = "ittybittyapps.android.library"
+            id = "finwise.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidFeature") {
-            id = "ittybittyapps.android.feature"
+            id = "finwise.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
         }
         register("androidHilt") {
-            id = "ittybittyapps.android.hilt"
+            id = "finwise.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
     }

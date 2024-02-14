@@ -1,5 +1,5 @@
 plugins {
-    id("ittybittyapps.android.library")
+    id("finwise.library")
 }
 
 dependencies {
@@ -11,5 +11,5 @@ dependencies {
     testImplementation(project(":core:testing"))
 }
 android {
-    namespace = "com.ittybittyapps.apptemplate.core.datastore"
+    namespace = "com.finwise.core.datastore"
 }

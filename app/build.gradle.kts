@@ -1,20 +1,20 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("ittybittyapps.android.application")
-    id("ittybittyapps.android.application.compose")
-    id("ittybittyapps.android.hilt")
+    id("finwise.application")
+    id("finwise.application.compose")
+    id("finwise.hilt")
 }
 
 android {
-    namespace = "com.ittybittyapps.apptemplate.android"
+    namespace = "com.finwise"
 
     defaultConfig {
-        applicationId = "com.ittybittyapps.apptemplate"
+        applicationId = "com.finwise"
         versionCode = findProperty("versionCode")?.toString()?.toIntOrNull() ?: 1
         versionName = findProperty("versionName")?.toString() ?: "1"
 
-        testInstrumentationRunner = "com.ittybittyapps.apptemplate.core.testing.CustomTestRunner"
+        testInstrumentationRunner = "com.finwise.core.testing.CustomTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }

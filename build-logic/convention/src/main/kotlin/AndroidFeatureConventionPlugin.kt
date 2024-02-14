@@ -1,5 +1,5 @@
 import com.android.build.gradle.LibraryExtension
-import com.ittybittyapps.apptemplate.android.configureGradleManagedDevices
+import com.finwise.android.configureGradleManagedDevices
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -12,13 +12,13 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
-                apply("ittybittyapps.android.library")
-                apply("ittybittyapps.android.hilt")
+                apply("finwise.library")
+                apply("finwise.hilt")
             }
 
             extensions.configure<LibraryExtension> {
                 defaultConfig {
-                    testInstrumentationRunner = "com.ittybittyapps.apptemplate.core.testing.CustomTestRunner"
+                    testInstrumentationRunner = "com.finwise.core.testing.CustomTestRunner"
                 }
                 configureGradleManagedDevices(this)
             }

@@ -1,6 +1,6 @@
 plugins {
-    id("ittybittyapps.android.library")
-    id("ittybittyapps.android.library.compose")
+    id("finwise.library")
+    id("finwise.library.compose")
     kotlin("kapt")
 }
 
@@ -22,5 +22,5 @@ dependencies {
     debugApi(libs.androidx.compose.ui.testManifest)
 }
 android {
-    namespace = "com.ittybittyapps.apptemplate.core.testing"
+    namespace = "com.finwise.core.testing"
 }

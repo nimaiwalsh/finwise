@@ -1,10 +1,10 @@
 plugins {
-    id("ittybittyapps.android.library")
+    id("finwise.library")
 }
 
 dependencies {
     implementation(libs.kotlinx.coroutines.android)
 }
 android {
-    namespace = "com.ittybittyapps.apptemplate.core.model"
+    namespace = "com.finwise.core.model"
 }
