@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -xeu
+set -o pipefail
+
+# Overridable Environment
+BUILD_PATH=${BUILD_PATH:-build}
+CONFIGURATION=${CONFIGURATION:-Debug}
+RESULT_PATH=${RESULT_PATH:-${BUILD_PATH}/Artifacts}
+
+# Other variables
+# eg: JUNIT_PATH="${RESULT_PATH}/test-results.xml"
+SUPPORT_DIR="${BASH_SOURCE[0]%/*}/.."
+VENDOR_DIR="${SUPPORT_DIR}/vendor"
+
+PATH="${VENDOR_DIR}/detekt/bin:$PATH"
+
+# Whether the linter should attempt to automatically resolve issues by formatting the code (auto-correct)
+FORMAT=false
+
+while getopts 'f' OPTION; do
+  case "$OPTION" in
+  f)
+    FORMAT=true
+    ;;
+  ?)
+    echo "Lints the project. Pass -f to auto-correct." >&2
+    exit 1
+    ;;
+  esac
+done
+
+if [[ $FORMAT == true ]]; then
+  detekt-cli >/dev/null \
+    --plugins "$VENDOR_DIR"/detekt/detekt-formatting-1.22.0.jar \
+    --config "$VENDOR_DIR"/detekt/detekt.yml \
+    --excludes "**/build/**" \
+    --auto-correct
+fi
+
+detekt-cli \
+  --plugins "$VENDOR_DIR"/detekt/detekt-formatting-1.22.0.jar \
+  --config "$VENDOR_DIR"/detekt/detekt.yml \
+  --excludes "**/build/**"
