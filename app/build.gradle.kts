@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":core:model"))
 
     implementation(project(":feature:home"))
+    implementation(project(":feature:calculators"))
 
     androidTestImplementation(project(":core:testing"))
     androidTestImplementation(kotlin("test"))
