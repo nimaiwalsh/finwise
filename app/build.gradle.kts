@@ -64,6 +64,7 @@ dependencies {
 
     implementation(project(":core:data"))
     implementation(project(":core:model"))
+    implementation(project(":core:ui"))
 
     implementation(project(":feature:home"))
     implementation(project(":feature:calculators"))

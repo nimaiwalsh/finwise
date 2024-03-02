@@ -31,31 +31,29 @@ fun HomeScreen(
 
 @Composable
 internal fun HomeScreen(welcomeText: String) {
-    FinWiseAppTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(24.dp)
+                .fillMaxSize()
+                .wrapContentSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Column(
-                modifier = Modifier
-                    .padding(24.dp)
-                    .fillMaxSize()
-                    .wrapContentSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    text = welcomeText,
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Center
-                )
-                Spacer(Modifier.size(24.dp))
-                Icon(
-                    modifier = Modifier.size(164.dp),
-                    painter = painterResource(id = R.drawable.ic_iba_logo),
-                    contentDescription = null,
-                    tint = Color.Unspecified
-                )
-            }
+            Text(
+                text = welcomeText,
+                fontSize = 22.sp,
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.size(24.dp))
+            Icon(
+                modifier = Modifier.size(164.dp),
+                painter = painterResource(id = R.drawable.ic_iba_logo),
+                contentDescription = null,
+                tint = Color.Unspecified
+            )
         }
     }
 }
