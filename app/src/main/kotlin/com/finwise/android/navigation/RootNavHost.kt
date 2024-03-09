@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.finwise.feature.home.HomeScreen
-import com.finwise.feature.home.LoginScreen
+import com.finwise.feature.login.LoginScreen
 
 @Composable
 fun RootNavHost() {

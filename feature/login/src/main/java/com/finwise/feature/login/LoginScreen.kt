@@ -1,4 +1,4 @@
-package com.finwise.feature.home
+package com.finwise.feature.login
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

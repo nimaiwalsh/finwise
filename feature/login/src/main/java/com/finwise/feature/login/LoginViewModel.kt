@@ -1,4 +1,4 @@
-package com.finwise.feature.home
+package com.finwise.feature.login
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
