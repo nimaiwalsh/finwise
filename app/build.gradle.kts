@@ -68,6 +68,7 @@ dependencies {
 
     implementation(project(":feature:login"))
     implementation(project(":feature:home"))
+    implementation(project(":feature:financialposition"))
     implementation(project(":feature:calculators"))
 
     androidTestImplementation(project(":core:testing"))

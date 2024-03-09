@@ -6,5 +6,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : ViewModel() {
-    val welcomeText = "Welcome to FinWise!"
+    val welcomeText = "Welcome to FinWise!\n please select a tool below"
 }
