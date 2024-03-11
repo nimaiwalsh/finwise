@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("finwise.application")
     id("finwise.application.compose")
