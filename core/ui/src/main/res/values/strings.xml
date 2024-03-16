@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Home</string>
+    <string name="calculators">Calculators</string>
+    <string name="news">News</string>
+    <string name="financialPosition">Financial Position</string>
+</resources>

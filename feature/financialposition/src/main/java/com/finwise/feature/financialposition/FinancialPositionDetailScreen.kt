@@ -1,40 +1,39 @@
-package com.finwise.feature.login
+package com.finwise.feature.financialposition
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun LoginScreen(
-    viewModel: LoginViewModel = hiltViewModel(),
-    navigateToHome: () -> Unit,
-    navigateToSignUp: () -> Unit,
+fun FinancialPositionScreen(
+    financialPositionId: String,
+    viewModel: FinancialPositionDetailViewModel = hiltViewModel(),
 ) {
-    LoginScreen(
-        loginButtonClicked = navigateToHome,
-        signUpButtonClicked = navigateToSignUp,
+    FinancialPositionScreen(
+        financialPositionId = financialPositionId,
+        welcomeText = viewModel.title
     )
 }
 
 @Composable
-fun LoginScreen(
-    loginButtonClicked: () -> Unit,
-    signUpButtonClicked: () -> Unit,
+internal fun FinancialPositionScreen(
+    financialPositionId: String,
+    welcomeText: String
 ) {
     FinWiseAppTheme {
         Surface(
@@ -48,21 +47,19 @@ fun LoginScreen(
                     .wrapContentSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                Text(
+                    text = welcomeText,
+                    fontSize = 22.sp,
+                    textAlign = TextAlign.Center
+                )
+
+                Text(
+                    text = "Financial position id: $financialPositionId",
+                    fontSize = 22.sp,
+                    textAlign = TextAlign.Center
+                )
+
                 Spacer(Modifier.size(24.dp))
-
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = loginButtonClicked,
-                ) {
-                    Text("Login")
-                }
-
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = signUpButtonClicked,
-                ) {
-                    Text("Signup")
-                }
             }
         }
     }
@@ -70,11 +67,11 @@ fun LoginScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun LoginScreenPreview() {
+fun HomeScreenPreview() {
     FinWiseAppTheme {
-        LoginScreen(
-            loginButtonClicked = {},
-            signUpButtonClicked = {},
+        FinancialPositionScreen(
+            financialPositionId = "id1",
+            welcomeText = "Welcome to financial position"
         )
     }
 }

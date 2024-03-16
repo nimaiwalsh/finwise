@@ -3,11 +3,9 @@ package com.finwise.feature.login
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -20,22 +18,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun LoginScreen(
-    viewModel: LoginViewModel = hiltViewModel(),
-    navigateToHome: () -> Unit,
-    navigateToSignUp: () -> Unit,
+fun SignupScreen(
+    onBackClicked: () -> Unit,
+    viewModel: SignUpViewModel = hiltViewModel(),
 ) {
-    LoginScreen(
-        loginButtonClicked = navigateToHome,
-        signUpButtonClicked = navigateToSignUp,
-    )
+    SignupScreen(onBackClicked = onBackClicked)
 }
 
 @Composable
-fun LoginScreen(
-    loginButtonClicked: () -> Unit,
-    signUpButtonClicked: () -> Unit,
-) {
+fun SignupScreen(onBackClicked: () -> Unit) {
     FinWiseAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -50,19 +41,7 @@ fun LoginScreen(
             ) {
                 Spacer(Modifier.size(24.dp))
 
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = loginButtonClicked,
-                ) {
-                    Text("Login")
-                }
-
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = signUpButtonClicked,
-                ) {
-                    Text("Signup")
-                }
+                Text("SignupScreen")
             }
         }
     }
@@ -70,11 +49,8 @@ fun LoginScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun LoginScreenPreview() {
+fun Preview_SignupScreen() {
     FinWiseAppTheme {
-        LoginScreen(
-            loginButtonClicked = {},
-            signUpButtonClicked = {},
-        )
+        SignupScreen(onBackClicked = {})
     }
 }

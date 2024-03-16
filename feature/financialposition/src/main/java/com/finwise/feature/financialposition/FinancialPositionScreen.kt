@@ -3,38 +3,23 @@ package com.finwise.feature.financialposition
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun FinancialPositionScreen(
-    financialPositionId: String,
-    viewModel: FinancialPositionViewModel = hiltViewModel(),
-) {
-    FinancialPositionScreen(
-        financialPositionId = financialPositionId,
-        welcomeText = viewModel.title
-    )
-}
-
-@Composable
-internal fun FinancialPositionScreen(
-    financialPositionId: String,
-    welcomeText: String
-) {
+fun FinancialPositionScreen() {
     FinWiseAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -47,19 +32,14 @@ internal fun FinancialPositionScreen(
                     .wrapContentSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = welcomeText,
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Center
-                )
-
-                Text(
-                    text = "Financial position id: $financialPositionId",
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Center
-                )
-
                 Spacer(Modifier.size(24.dp))
+
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {},
+                ) {
+                    Text("FinancialPosition")
+                }
             }
         }
     }
@@ -67,11 +47,8 @@ internal fun FinancialPositionScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+fun Preview_FinancialPosition() {
     FinWiseAppTheme {
-        FinancialPositionScreen(
-            financialPositionId = "id1",
-            welcomeText = "Welcome to financial position"
-        )
+        FinancialPositionScreen()
     }
 }

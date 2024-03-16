@@ -1,8 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import java.io.FileInputStream
-import java.util.Properties
-
 plugins {
     id("finwise.application")
     id("finwise.application.compose")
@@ -73,6 +70,7 @@ dependencies {
     implementation(project(":feature:home"))
     implementation(project(":feature:financialposition"))
     implementation(project(":feature:calculators"))
+    implementation(project(":feature:newsfeed"))
 
     androidTestImplementation(project(":core:testing"))
     androidTestImplementation(kotlin("test"))

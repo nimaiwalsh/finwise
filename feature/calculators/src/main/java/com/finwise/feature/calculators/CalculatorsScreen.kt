@@ -1,4 +1,4 @@
-package com.finwise.feature.login
+package com.finwise.feature.calculators
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,26 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun LoginScreen(
-    viewModel: LoginViewModel = hiltViewModel(),
-    navigateToHome: () -> Unit,
-    navigateToSignUp: () -> Unit,
-) {
-    LoginScreen(
-        loginButtonClicked = navigateToHome,
-        signUpButtonClicked = navigateToSignUp,
-    )
-}
-
-@Composable
-fun LoginScreen(
-    loginButtonClicked: () -> Unit,
-    signUpButtonClicked: () -> Unit,
-) {
+fun CalculatorsScreen() {
     FinWiseAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -52,16 +36,9 @@ fun LoginScreen(
 
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = loginButtonClicked,
+                    onClick = {},
                 ) {
-                    Text("Login")
-                }
-
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = signUpButtonClicked,
-                ) {
-                    Text("Signup")
+                    Text("CompoundInterest")
                 }
             }
         }
@@ -72,9 +49,6 @@ fun LoginScreen(
 @Composable
 fun LoginScreenPreview() {
     FinWiseAppTheme {
-        LoginScreen(
-            loginButtonClicked = {},
-            signUpButtonClicked = {},
-        )
+        CalculatorsScreen()
     }
 }
