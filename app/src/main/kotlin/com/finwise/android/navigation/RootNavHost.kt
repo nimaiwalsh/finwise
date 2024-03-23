@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -69,21 +70,32 @@ fun RootNavHost(isAuthenticated: Boolean) {
         }
     ) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
-            NavHost(
-                navController = rootNavController,
-                startDestination = if (isAuthenticated) AppScreen.Main.route else AppScreen.Auth.route,
-                enterTransition =  {
-                    // you can change whatever you want transition
-                    EnterTransition.None
-                },
-                exitTransition = {
-                    // you can change whatever you want transition
-                    ExitTransition.None
-                }
-            ) {
-                authNavGraph(rootNavController)
-                mainNavGraph(rootNavController)
-            }
+            RootNavHost(
+                rootNavController = rootNavController,
+                isAuthenticated = isAuthenticated,
+            )
         }
+    }
+}
+
+@Composable
+private fun RootNavHost(
+    rootNavController: NavHostController,
+    isAuthenticated: Boolean,
+) {
+    NavHost(
+        navController = rootNavController,
+        startDestination = if (isAuthenticated) AppScreen.Main.route else AppScreen.Auth.route,
+        enterTransition = {
+            // you can change whatever you want transition
+            EnterTransition.None
+        },
+        exitTransition = {
+            // you can change whatever you want transition
+            ExitTransition.None
+        }
+    ) {
+        authNavGraph(rootNavController)
+        mainNavGraph(rootNavController)
     }
 }
