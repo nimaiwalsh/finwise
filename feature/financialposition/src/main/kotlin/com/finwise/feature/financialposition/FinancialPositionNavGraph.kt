@@ -26,7 +26,10 @@ fun NavGraphBuilder.financialPositionNavGraph(
             )
         }
 
-        composable(route = FinancialPositionScreen.Detail.route) { navBackStackEntry ->
+        composable(
+            route = FinancialPositionScreen.Detail.route,
+            arguments = FinancialPositionScreen.Detail.navArguments,
+        ) { navBackStackEntry ->
             val financialPositionId = navBackStackEntry.arguments?.getString(ArgParams.FINANCIAL_POSITION_ID)
 
             checkNotNull(financialPositionId) { "need a financial position id to open the page" }
