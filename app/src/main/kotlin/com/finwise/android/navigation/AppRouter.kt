@@ -1,4 +1,4 @@
-package com.finwise.core.ui.navigation
+package com.finwise.android.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NamedNavArgument
@@ -6,19 +6,14 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.finwise.core.ui.R
 import com.finwise.core.ui.theme.AppIcons
+import com.finwise.feature.calculators.CalculatorScreen
+import com.finwise.feature.financialposition.FinancialPositionScreen
+import com.finwise.feature.home.navigation.HomeScreen
+import com.finwise.feature.login.navigation.AuthScreen
+import com.finwise.feature.newsfeed.NewsScreen
 
 private object Route {
-    // Login NavGraph Routes
-    const val AUTH = "auth"
-    const val LOGIN = "login"
-    const val REGISTER = "register"
-
-    // Main NavGraph Routes
     const val MAIN = "main"
-    const val HOME = "home"
-    const val CALCULATORS = "calculators"
-    const val NEWS_FEED = "newsFeed"
-    const val FINANCIAL_POSITION = "financialPosition"
     const val FINANCIAL_POSITION_DETAIL = "financialPosition/{${ArgParams.FINANCIAL_POSITION_ID}}"
 }
 
@@ -31,36 +26,33 @@ object ArgParams {
 sealed class AppScreen(val route: String, val navArguments: List<NamedNavArgument> = emptyList()) {
 
     // Login NavGraph
-    object Auth : AppScreen(Route.AUTH) {
-        object Login : AppScreen(Route.LOGIN)
-        object Register : AppScreen(Route.REGISTER)
-    }
+    object Auth : AppScreen(AuthScreen.Graph.route)
 
     // Main NavGraph
     object Main : TopLevelDestination(Route.MAIN) {
         object Home : TopLevelDestination(
-            route = Route.HOME,
+            route = HomeScreen.Home.route,
             title = R.string.home,
             selectedIcon = AppIcons.HomeFilled,
             unselectedIcon = AppIcons.HomeOutlined,
         )
 
         object Calculators : TopLevelDestination(
-            route = Route.CALCULATORS,
+            route = CalculatorScreen.Calculators.route,
             title = R.string.calculators,
             selectedIcon = AppIcons.CalculatorFilled,
             unselectedIcon = AppIcons.CalculatorOutlined,
         )
 
         object FinancialPosition : TopLevelDestination(
-            route = Route.FINANCIAL_POSITION,
+            route = FinancialPositionScreen.Overview.route,
             title = R.string.financialPosition,
             selectedIcon = AppIcons.MoneyFilled,
             unselectedIcon = AppIcons.MoneyOutlined,
         )
 
         object NewsFeed : TopLevelDestination(
-            route = Route.NEWS_FEED,
+            route = NewsScreen.NewsList.route,
             title = R.string.news,
             selectedIcon = AppIcons.NewsFilled,
             unselectedIcon = AppIcons.NewsOutlined,

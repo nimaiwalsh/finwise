@@ -19,8 +19,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.finwise.core.ui.navigation.AppScreen
-import com.finwise.core.ui.reusablecomponents.BottomNavBar
+import com.finwise.feature.login.navigation.authNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -95,7 +94,25 @@ private fun RootNavHost(
             ExitTransition.None
         }
     ) {
-        authNavGraph(rootNavController)
-        mainNavGraph(rootNavController)
+        authNavGraph(
+            navigateToMain = {
+                rootNavController.navigate(AppScreen.Main.route) {
+                    popUpTo(AppScreen.Auth.route) {
+                        inclusive = true
+                    }
+                }
+            },
+            navController = rootNavController,
+        )
+        mainNavGraph(
+            navController = rootNavController,
+            navigateToLogin = {
+                rootNavController.navigate(AppScreen.Auth.route) {
+                    popUpTo(AppScreen.Main.route) {
+                        inclusive = true
+                    }
+                }
+            }
+        )
     }
 }

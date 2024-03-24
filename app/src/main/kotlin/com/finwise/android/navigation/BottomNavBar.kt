@@ -1,4 +1,4 @@
-package com.finwise.core.ui.reusablecomponents
+package com.finwise.android.navigation
 
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -11,7 +11,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.finwise.core.ui.navigation.AppScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -19,7 +18,10 @@ fun BottomNavBar(
     navController: NavHostController,
 ) {
     val navigationScreen = listOf(
-        AppScreen.Main.Home, AppScreen.Main.Calculators, AppScreen.Main.NewsFeed, AppScreen.Main.FinancialPosition
+        AppScreen.Main.Home,
+        AppScreen.Main.Calculators,
+        AppScreen.Main.NewsFeed,
+        AppScreen.Main.FinancialPosition
     )
 
     NavigationBar {

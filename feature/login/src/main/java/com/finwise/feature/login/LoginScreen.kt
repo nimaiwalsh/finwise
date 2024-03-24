@@ -22,11 +22,11 @@ import com.finwise.core.ui.theme.FinWiseAppTheme
 @Composable
 fun LoginScreen(
     viewModel: LoginViewModel = hiltViewModel(),
-    navigateToHome: () -> Unit,
+    navigateToMain: () -> Unit,
     navigateToSignUp: () -> Unit,
 ) {
     LoginScreen(
-        loginButtonClicked = navigateToHome,
+        loginButtonClicked = navigateToMain,
         signUpButtonClicked = navigateToSignUp,
     )
 }
