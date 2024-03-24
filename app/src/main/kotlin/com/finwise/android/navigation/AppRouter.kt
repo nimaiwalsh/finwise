@@ -2,8 +2,6 @@ package com.finwise.android.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NamedNavArgument
-import androidx.navigation.NavType
-import androidx.navigation.navArgument
 import com.finwise.core.ui.R
 import com.finwise.core.ui.theme.AppIcons
 import com.finwise.feature.calculators.CalculatorScreen
@@ -14,15 +12,7 @@ import com.finwise.feature.newsfeed.NewsScreen
 
 private object Route {
     const val MAIN = "main"
-    const val FINANCIAL_POSITION_DETAIL = "financialPosition/{${ArgParams.FINANCIAL_POSITION_ID}}"
 }
-
-object ArgParams {
-    const val FINANCIAL_POSITION_ID = "financialPositionId"
-
-    fun toPath(param: String) = "{${param}}"
-}
-
 sealed class AppScreen(val route: String, val navArguments: List<NamedNavArgument> = emptyList()) {
 
     // Login NavGraph
@@ -57,17 +47,6 @@ sealed class AppScreen(val route: String, val navArguments: List<NamedNavArgumen
             selectedIcon = AppIcons.NewsFilled,
             unselectedIcon = AppIcons.NewsOutlined,
         )
-    }
-
-    object FinancialPositionDetail : AppScreen(
-        route = Route.FINANCIAL_POSITION_DETAIL,
-        navArguments = listOf(
-            navArgument(ArgParams.FINANCIAL_POSITION_ID) { type = NavType.Companion.StringType },
-        ),
-    ) {
-        fun createRoute(financialPositionId: String) =
-            Route.FINANCIAL_POSITION_DETAIL
-                .replace(ArgParams.toPath(ArgParams.FINANCIAL_POSITION_ID), financialPositionId)
     }
 }
 

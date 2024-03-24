@@ -8,7 +8,6 @@ import com.finwise.feature.home.HomeScreen
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController,
-    navigateToFinancialPosition: (financialPositionId: String) -> Unit,
     navigateToLogin: () -> Unit,
 ) {
     navigation(
@@ -19,7 +18,6 @@ fun NavGraphBuilder.homeNavGraph(
             route = HomeScreen.Home.route,
         ) {
             HomeScreen(
-                onFinancialPositionClicked = navigateToFinancialPosition,
                 // route back to auth graph
                 navigateToLogin = navigateToLogin,
             )

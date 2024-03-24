@@ -22,12 +22,10 @@ import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
 fun HomeScreen(
-    onFinancialPositionClicked: (financialPositionId: String) -> Unit,
     navigateToLogin: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     HomeScreen(
-        onFinancialPositionClicked = onFinancialPositionClicked,
         onLogoutClicked = navigateToLogin,
         welcomeText = viewModel.welcomeText
     )
@@ -35,7 +33,6 @@ fun HomeScreen(
 
 @Composable
 internal fun HomeScreen(
-    onFinancialPositionClicked: (financialPositionId: String) -> Unit,
     onLogoutClicked: () -> Unit,
     welcomeText: String
 ) {
@@ -59,10 +56,6 @@ internal fun HomeScreen(
 
             Spacer(Modifier.size(24.dp))
 
-            Button(onClick = { onFinancialPositionClicked("id2") }) {
-                Text("Financial position")
-            }
-
             Button(onClick = onLogoutClicked) {
                 Text("Logout")
             }
@@ -75,7 +68,6 @@ internal fun HomeScreen(
 fun HomeScreenPreview() {
     FinWiseAppTheme {
         HomeScreen(
-            onFinancialPositionClicked = {},
             onLogoutClicked = {},
             welcomeText = "Welcome to FinWise, please select a tool below!"
         )

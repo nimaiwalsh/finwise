@@ -20,18 +20,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun FinancialPositionScreen(
+fun FinancialPositionDetailScreen(
     financialPositionId: String,
     viewModel: FinancialPositionDetailViewModel = hiltViewModel(),
 ) {
-    FinancialPositionScreen(
+    FinancialPositionDetailScreen(
         financialPositionId = financialPositionId,
         welcomeText = viewModel.title
     )
 }
 
 @Composable
-internal fun FinancialPositionScreen(
+internal fun FinancialPositionDetailScreen(
     financialPositionId: String,
     welcomeText: String
 ) {
@@ -69,7 +69,7 @@ internal fun FinancialPositionScreen(
 @Composable
 fun HomeScreenPreview() {
     FinWiseAppTheme {
-        FinancialPositionScreen(
+        FinancialPositionDetailScreen(
             financialPositionId = "id1",
             welcomeText = "Welcome to financial position"
         )

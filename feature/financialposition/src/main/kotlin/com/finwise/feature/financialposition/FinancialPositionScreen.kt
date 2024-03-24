@@ -19,7 +19,9 @@ import androidx.compose.ui.unit.dp
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun FinancialPositionScreen() {
+fun FinancialPositionScreen(
+    navigateToFinancialPositionDetail: (financialPositionId: String) -> Unit,
+) {
     FinWiseAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -40,6 +42,10 @@ fun FinancialPositionScreen() {
                 ) {
                     Text("FinancialPosition")
                 }
+
+                Button(onClick = { navigateToFinancialPositionDetail("id2") }) {
+                    Text("Financial position")
+                }
             }
         }
     }
@@ -49,6 +55,8 @@ fun FinancialPositionScreen() {
 @Composable
 fun Preview_FinancialPosition() {
     FinWiseAppTheme {
-        FinancialPositionScreen()
+        FinancialPositionScreen(
+            navigateToFinancialPositionDetail = {}
+        )
     }
 }
