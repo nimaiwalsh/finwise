@@ -1,6 +1,5 @@
 package com.finwise.android.navigation
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.navigation
@@ -11,14 +10,6 @@ import com.finwise.feature.home.navigation.homeNavGraph
 import com.finwise.feature.newsfeed.newsFeedNavGraph
 
 const val MAIN_GRAPH = "main-graph"
-
-fun NavController.navigateToMainNavGraph() {
-    navigate(MAIN_GRAPH) {
-        popUpTo(AppScreen.Auth.route) {
-            inclusive = true
-        }
-    }
-}
 
 fun NavGraphBuilder.mainNavGraph(
     navController: NavHostController,

@@ -15,14 +15,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
-@Composable
-fun SignupScreen(
-    onBackClicked: () -> Unit,
-    viewModel: SignUpViewModel = hiltViewModel(),
+const val SIGNUP_ROUTE = "signup"
+
+fun NavController.navigateToSignup() {
+    navigate(SIGNUP_ROUTE)
+}
+
+fun NavGraphBuilder.signupScreen(
+    onNavigateBack: () -> Unit,
 ) {
-    SignupScreen(onBackClicked = onBackClicked)
+    composable(route = SIGNUP_ROUTE) {
+        val viewModel: SignUpViewModel = hiltViewModel()
+
+        SignupScreen(onBackClicked = onNavigateBack)
+    }
 }
 
 @Composable

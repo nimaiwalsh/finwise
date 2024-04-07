@@ -2,42 +2,29 @@ package com.finwise.feature.login.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.finwise.feature.login.LoginScreen
-import com.finwise.feature.login.SignupScreen
+import com.finwise.feature.login.LOGIN_ROUTE
+import com.finwise.feature.login.loginScreen
+import com.finwise.feature.login.navigateToSignup
+import com.finwise.feature.login.signupScreen
+
+const val AUTH_GRAPH = "auth-graph"
 
 fun NavGraphBuilder.authNavGraph(
-    navigateToMain: () -> Unit,
     navController: NavHostController,
+    navigateToMain: () -> Unit,
 ) {
     navigation(
-        route = AuthScreen.Graph.route,
-        startDestination = AuthScreen.Login.route,
+        route = AUTH_GRAPH,
+        startDestination = LOGIN_ROUTE,
     ) {
-        composable(
-            route = AuthScreen.Login.route,
-        ) {
-            LoginScreen(
-                navigateToMain = navigateToMain,
-                navigateToSignUp = {
-                    navController.navigate(AuthScreen.Register.route)
-                }
-            )
-        }
+        loginScreen(
+            onNavigateToMain = navigateToMain,
+            onNavigateToSignUp = { navController.navigateToSignup() },
+        )
 
-        composable(
-            route = AuthScreen.Register.route,
-        ) {
-            SignupScreen(
-                onBackClicked = { navController.navigateUp() },
-            )
-        }
+        signupScreen(
+            onNavigateBack = { navController.popBackStack() }
+        )
     }
-}
-
-sealed class AuthScreen(val route: String) {
-    object Graph : AuthScreen("auth_graph")
-    object Login : AuthScreen("login")
-    object Register : AuthScreen("register")
 }

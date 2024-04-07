@@ -7,13 +7,9 @@ import com.finwise.core.ui.theme.AppIcons
 import com.finwise.feature.calculators.CalculatorScreen
 import com.finwise.feature.financialposition.FinancialPositionScreen
 import com.finwise.feature.home.HOME_ROUTE
-import com.finwise.feature.login.navigation.AuthScreen
 import com.finwise.feature.newsfeed.NewsScreen
 
 sealed class AppScreen(val route: String, val navArguments: List<NamedNavArgument> = emptyList()) {
-
-    // Login NavGraph
-    object Auth : AppScreen(AuthScreen.Graph.route)
 
     // Main NavGraph
     object Main : TopLevelDestination(MAIN_GRAPH) {

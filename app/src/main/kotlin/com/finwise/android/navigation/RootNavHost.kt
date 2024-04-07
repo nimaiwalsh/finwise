@@ -19,6 +19,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.finwise.feature.login.navigation.AUTH_GRAPH
 import com.finwise.feature.login.navigation.authNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -84,7 +85,7 @@ private fun RootNavHost(
 ) {
     NavHost(
         navController = rootNavController,
-        startDestination = if (isAuthenticated) AppScreen.Main.route else AppScreen.Auth.route,
+        startDestination = if (isAuthenticated) MAIN_GRAPH else AUTH_GRAPH,
         enterTransition = {
             // you can change whatever you want transition
             EnterTransition.None
@@ -95,15 +96,19 @@ private fun RootNavHost(
         }
     ) {
         authNavGraph(
-            navigateToMain = {
-                rootNavController.navigateToMainNavGraph()
-            },
             navController = rootNavController,
+            navigateToMain = {
+                rootNavController.navigate(MAIN_GRAPH) {
+                    popUpTo(AUTH_GRAPH) {
+                        inclusive = true
+                    }
+                }
+            },
         )
         mainNavGraph(
             navController = rootNavController,
             navigateToLogin = {
-                rootNavController.navigate(AppScreen.Auth.route) {
+                rootNavController.navigate(AUTH_GRAPH) {
                     popUpTo(AppScreen.Main.route) {
                         inclusive = true
                     }
