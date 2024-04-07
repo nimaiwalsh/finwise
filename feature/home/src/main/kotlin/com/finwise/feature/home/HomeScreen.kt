@@ -11,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -18,17 +19,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
-@Composable
-fun HomeScreen(
-    navigateToLogin: () -> Unit,
-    viewModel: HomeViewModel = hiltViewModel(),
+const val HOME_ROUTE = "home"
+
+fun NavController.navigateToHomeScreen() {
+    navigate(HOME_ROUTE)
+}
+
+fun NavGraphBuilder.homeScreen(
+    onNavigateBack: () -> Unit,
+    onNavigateToLogin: () -> Unit,
 ) {
-    HomeScreen(
-        onLogoutClicked = navigateToLogin,
-        welcomeText = viewModel.welcomeText
-    )
+    composable(route = HOME_ROUTE) {
+        // view models live as long as destinations in the NavHost,
+        // which we create using composable(route) function.
+        val viewModel: HomeViewModel = hiltViewModel()
+        val state by viewModel.state.collectAsStateWithLifecycle()
+
+        HomeScreen(
+            onLogoutClicked = onNavigateToLogin,
+            welcomeText = state.welcomeText,
+        )
+    }
 }
 
 @Composable

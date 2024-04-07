@@ -96,11 +96,7 @@ private fun RootNavHost(
     ) {
         authNavGraph(
             navigateToMain = {
-                rootNavController.navigate(AppScreen.Main.route) {
-                    popUpTo(AppScreen.Auth.route) {
-                        inclusive = true
-                    }
-                }
+                rootNavController.navigateToMainNavGraph()
             },
             navController = rootNavController,
         )

@@ -6,22 +6,19 @@ import com.finwise.core.ui.R
 import com.finwise.core.ui.theme.AppIcons
 import com.finwise.feature.calculators.CalculatorScreen
 import com.finwise.feature.financialposition.FinancialPositionScreen
-import com.finwise.feature.home.navigation.HomeScreen
+import com.finwise.feature.home.HOME_ROUTE
 import com.finwise.feature.login.navigation.AuthScreen
 import com.finwise.feature.newsfeed.NewsScreen
 
-private object Route {
-    const val MAIN = "main"
-}
 sealed class AppScreen(val route: String, val navArguments: List<NamedNavArgument> = emptyList()) {
 
     // Login NavGraph
     object Auth : AppScreen(AuthScreen.Graph.route)
 
     // Main NavGraph
-    object Main : TopLevelDestination(Route.MAIN) {
+    object Main : TopLevelDestination(MAIN_GRAPH) {
         object Home : TopLevelDestination(
-            route = HomeScreen.Home.route,
+            route = HOME_ROUTE,
             title = R.string.home,
             selectedIcon = AppIcons.HomeFilled,
             unselectedIcon = AppIcons.HomeOutlined,
