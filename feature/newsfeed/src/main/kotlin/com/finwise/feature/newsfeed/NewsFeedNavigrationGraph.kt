@@ -2,25 +2,17 @@ package com.finwise.feature.newsfeed
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+
+const val NEWSFEED_GRAPH = "newsfeed-graph"
 
 fun NavGraphBuilder.newsFeedNavGraph(
     navController: NavHostController,
 ) {
     navigation(
-        route = NewsScreen.Graph.route,
-        startDestination = NewsScreen.NewsList.route,
+        route = NEWSFEED_GRAPH,
+        startDestination = NEWSFEED_ROUTE,
     ) {
-        composable(
-            route = NewsScreen.NewsList.route,
-        ) {
-            NewsfeedScreen()
-        }
+        newsfeedScreen()
     }
-}
-
-sealed class NewsScreen(val route: String) {
-    object Graph : NewsScreen("news_graph")
-    object NewsList : NewsScreen("news_list")
 }

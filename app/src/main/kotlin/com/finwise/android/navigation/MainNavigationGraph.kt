@@ -16,7 +16,7 @@ fun NavGraphBuilder.mainNavGraph(
     navigateToLogin: () -> Unit,
 ) {
     navigation(
-        route = AppScreen.Main.route,
+        route = MAIN_GRAPH,
         startDestination = HOME_GRAPH_ROUTE,
     ) {
 

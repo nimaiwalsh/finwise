@@ -37,19 +37,19 @@ fun RootNavHost(isAuthenticated: Boolean) {
 
     // Control TopBar and BottomBar
     when (rootNavBackStackEntry?.destination?.route) {
-        AppScreen.Main.Home.route -> {
+        TopLevelDestination.Home.route -> {
             bottomBarState.value = true
             topBarState.value = true
         }
-        AppScreen.Main.Calculators.route -> {
+        TopLevelDestination.Calculators.route -> {
             bottomBarState.value = true
             topBarState.value = true
         }
-        AppScreen.Main.NewsFeed.route -> {
+        TopLevelDestination.NewsFeed.route -> {
             bottomBarState.value = true
             topBarState.value = true
         }
-        AppScreen.Main.FinancialPosition.route -> {
+        TopLevelDestination.FinancialPosition.route -> {
             bottomBarState.value = true
             topBarState.value = true
         }
@@ -65,7 +65,15 @@ fun RootNavHost(isAuthenticated: Boolean) {
         },
         bottomBar = {
             if (bottomBarState.value) {
-                BottomNavBar(navController = rootNavController)
+                BottomNavBar(
+                    navController = rootNavController,
+                    navigationScreens = listOf(
+                        TopLevelDestination.Home,
+                        TopLevelDestination.Calculators,
+                        TopLevelDestination.NewsFeed,
+                        TopLevelDestination.FinancialPosition
+                    )
+                )
             }
         }
     ) { paddingValues ->
@@ -109,7 +117,7 @@ private fun RootNavHost(
             navController = rootNavController,
             navigateToLogin = {
                 rootNavController.navigate(AUTH_GRAPH) {
-                    popUpTo(AppScreen.Main.route) {
+                    popUpTo(MAIN_GRAPH) {
                         inclusive = true
                     }
                 }

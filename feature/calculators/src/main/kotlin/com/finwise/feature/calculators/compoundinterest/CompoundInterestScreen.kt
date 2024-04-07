@@ -17,13 +17,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
-@Composable
-fun CompoundInterestCalculatorScreen(
-    viewModel: CompoundInterestViewModel = hiltViewModel(),
+const val CALCULATOR_COMPOUND_INTEREST_ROUTE = "calculator-compound-interest"
+
+fun NavController.navigateToCalculatorCompoundInterestScreen() {
+    navigate(CALCULATOR_COMPOUND_INTEREST_ROUTE)
+}
+
+fun NavGraphBuilder.calculatorCompoundInterestScreen(
+    onNavigateBack: () -> Unit,
 ) {
-    CompoundInterestCalculatorScreen(welcomeText = viewModel.title)
+    composable(route = CALCULATOR_COMPOUND_INTEREST_ROUTE) {
+        val viewModel: CompoundInterestViewModel = hiltViewModel()
+
+        CompoundInterestCalculatorScreen(welcomeText = viewModel.title)
+    }
 }
 
 @Composable
@@ -53,7 +65,7 @@ internal fun CompoundInterestCalculatorScreen(welcomeText: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+private fun HomeScreenPreview() {
     FinWiseAppTheme {
         CompoundInterestCalculatorScreen(welcomeText = "Welcome to compound interest")
     }
