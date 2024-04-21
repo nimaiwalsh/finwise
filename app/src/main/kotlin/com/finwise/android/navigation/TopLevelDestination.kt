@@ -3,8 +3,8 @@ package com.finwise.android.navigation
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.finwise.core.ui.R
 import com.finwise.core.ui.theme.AppIcons
-import com.finwise.feature.calculators.CALCULATORS_ROUTE
-import com.finwise.feature.financialposition.FinancialPositionScreen
+import com.finwise.feature.calculators.home.CALCULATORS_ROUTE
+import com.finwise.feature.financialposition.overview.FINANCIAL_POSITION_ROUTE
 import com.finwise.feature.home.HOME_ROUTE
 import com.finwise.feature.newsfeed.NEWSFEED_ROUTE
 
@@ -32,7 +32,7 @@ sealed class TopLevelDestination(
     )
 
     object FinancialPosition : TopLevelDestination(
-        route = FinancialPositionScreen.Overview.route,
+        route = FINANCIAL_POSITION_ROUTE,
         title = R.string.financialPosition,
         selectedIcon = AppIcons.MoneyFilled,
         unselectedIcon = AppIcons.MoneyOutlined,

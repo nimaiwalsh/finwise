@@ -19,8 +19,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.finwise.feature.login.navigation.AUTH_GRAPH
-import com.finwise.feature.login.navigation.authNavGraph
+import com.finwise.feature.auth.AUTH_GRAPH
+import com.finwise.feature.auth.authNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

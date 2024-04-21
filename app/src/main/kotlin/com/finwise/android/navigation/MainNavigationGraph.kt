@@ -5,8 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import com.finwise.feature.calculators.calculatorsNavGraph
 import com.finwise.feature.financialposition.financialPositionNavGraph
-import com.finwise.feature.home.navigation.HOME_GRAPH_ROUTE
-import com.finwise.feature.home.navigation.homeNavGraph
+import com.finwise.feature.home.HOME_GRAPH_ROUTE
+import com.finwise.feature.home.homeNavGraph
 import com.finwise.feature.newsfeed.newsFeedNavGraph
 
 const val MAIN_GRAPH = "main-graph"
