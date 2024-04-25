@@ -16,23 +16,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun FinancialPositionDetailScreen(
-    financialPositionId: String,
-    viewModel: FinancialPositionDetailViewModel = hiltViewModel(),
-) {
-    FinancialPositionDetailScreen(
-        financialPositionId = financialPositionId,
-        welcomeText = viewModel.title
-    )
-}
-
-@Composable
 internal fun FinancialPositionDetailScreen(
-    financialPositionId: String,
     welcomeText: String
 ) {
     FinWiseAppTheme {
@@ -53,12 +40,6 @@ internal fun FinancialPositionDetailScreen(
                     textAlign = TextAlign.Center
                 )
 
-                Text(
-                    text = "Financial position id: $financialPositionId",
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Center
-                )
-
                 Spacer(Modifier.size(24.dp))
             }
         }
@@ -70,7 +51,6 @@ internal fun FinancialPositionDetailScreen(
 fun HomeScreenPreview() {
     FinWiseAppTheme {
         FinancialPositionDetailScreen(
-            financialPositionId = "id1",
             welcomeText = "Welcome to financial position"
         )
     }
