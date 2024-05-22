@@ -9,7 +9,7 @@ import java.util.Locale
  * Configure project for Gradle managed devices
  */
 internal fun configureGradleManagedDevices(
-    commonExtension: CommonExtension<*, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
     val deviceConfigs = listOf(
         DeviceConfig(device = "Pixel 4", apiLevel = 30, systemImageSource = "aosp-atd"),
@@ -38,7 +38,7 @@ private data class DeviceConfig(
     val systemImageSource: String,
 ) {
     val taskName = buildString {
-        append(device.toLowerCase(Locale.ROOT).replace(" ", ""))
+        append(device.lowercase(Locale.ROOT).replace(" ", ""))
         append("api")
         append(apiLevel.toString())
         append(systemImageSource.replace("-", ""))
