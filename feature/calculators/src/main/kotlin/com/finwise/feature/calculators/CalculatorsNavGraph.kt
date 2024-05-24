@@ -3,22 +3,23 @@ package com.finwise.feature.calculators
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.navigation
+import com.finwise.feature.calculators.compoundinterest.CalculatorCompoundInterestDestination
 import com.finwise.feature.calculators.compoundinterest.calculatorCompoundInterestScreen
-import com.finwise.feature.calculators.compoundinterest.navigateToCalculatorCompoundInterestScreen
-import com.finwise.feature.calculators.home.CALCULATORS_ROUTE
+import com.finwise.feature.calculators.home.CalculatorsDestination
 import com.finwise.feature.calculators.home.calculatorsScreen
+import kotlinx.serialization.Serializable
 
-const val CALCULATORS_GRAPH = "calculators-graph"
+@Serializable
+object CalculatorsGraph
 
 fun NavGraphBuilder.calculatorsNavGraph(
     navController: NavHostController,
 ) {
-    navigation(
-        route = CALCULATORS_GRAPH,
-        startDestination = CALCULATORS_ROUTE,
+    navigation<CalculatorsGraph>(
+        startDestination = CalculatorsDestination,
     ) {
         calculatorsScreen(
-            onNavigateToCompoundInterest = navController::navigateToCalculatorCompoundInterestScreen,
+            onNavigateToCompoundInterest = { navController.navigate(CalculatorCompoundInterestDestination) },
         )
         calculatorCompoundInterestScreen(
             onNavigateBack = { navController.popBackStack() }

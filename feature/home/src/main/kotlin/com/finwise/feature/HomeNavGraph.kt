@@ -1,23 +1,21 @@
-package com.finwise.feature.home
+package com.finwise.feature
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.navigation
+import com.finwise.feature.home.HomeDestination
+import com.finwise.feature.home.homeScreen
+import kotlinx.serialization.Serializable
 
-const val HOME_GRAPH_ROUTE = "home-graph"
-
-fun NavController.navigateToHomeGraph() {
-    navigate(HOME_GRAPH_ROUTE)
-}
+@Serializable
+object HomeGraph
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController,
     onNavigateToLogin: () -> Unit,
 ) {
-    navigation(
-        route = HOME_GRAPH_ROUTE,
-        startDestination = HOME_ROUTE,
+    navigation<HomeGraph>(
+        startDestination = HomeDestination,
     ) {
         homeScreen(
             onNavigateBack = { navController.popBackStack() },

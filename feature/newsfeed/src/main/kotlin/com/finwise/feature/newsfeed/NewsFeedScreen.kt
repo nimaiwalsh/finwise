@@ -16,22 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
 import com.finwise.core.ui.theme.FinWiseAppTheme
-
-const val NEWSFEED_ROUTE = "newsfeed"
-
-fun NavController.navigateToNewsfeed() {
-    navigate(NEWSFEED_ROUTE)
-}
-
-fun NavGraphBuilder.newsfeedScreen() {
-    composable(route = NEWSFEED_ROUTE) {
-        NewsfeedScreen()
-    }
-}
 
 @Composable
 fun NewsfeedScreen() {

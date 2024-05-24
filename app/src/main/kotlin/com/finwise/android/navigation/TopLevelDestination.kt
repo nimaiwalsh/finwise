@@ -3,10 +3,10 @@ package com.finwise.android.navigation
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.finwise.core.ui.R
 import com.finwise.core.ui.theme.AppIcons
-import com.finwise.feature.calculators.home.CALCULATORS_ROUTE
-import com.finwise.feature.financialposition.overview.FINANCIAL_POSITION_ROUTE
-import com.finwise.feature.home.HOME_ROUTE
-import com.finwise.feature.newsfeed.NEWSFEED_ROUTE
+import com.finwise.feature.calculators.home.CalculatorsDestination
+import com.finwise.feature.financialposition.overview.FinancialPositionDestination
+import com.finwise.feature.home.HomeDestination
+import com.finwise.feature.newsfeed.NewsFeedDestination
 
 /**
  * Top level destinations used for Bottom App Bar Navigation on the [MAIN_GRAPH].
@@ -17,29 +17,29 @@ sealed class TopLevelDestination(
     val selectedIcon: ImageVector? = null,
     val unselectedIcon: ImageVector? = null,
 ) {
-    object Home : TopLevelDestination(
-        route = HOME_ROUTE,
+    data object Home : TopLevelDestination(
+        route = HomeDestination::class.qualifiedName.toString(),
         title = R.string.home,
         selectedIcon = AppIcons.HomeFilled,
         unselectedIcon = AppIcons.HomeOutlined,
     )
 
-    object Calculators : TopLevelDestination(
-        route = CALCULATORS_ROUTE,
+    data object Calculators : TopLevelDestination(
+        route = CalculatorsDestination::class.qualifiedName.toString(),
         title = R.string.calculators,
         selectedIcon = AppIcons.CalculatorFilled,
         unselectedIcon = AppIcons.CalculatorOutlined,
     )
 
-    object FinancialPosition : TopLevelDestination(
-        route = FINANCIAL_POSITION_ROUTE,
+    data object FinancialPosition : TopLevelDestination(
+        route = FinancialPositionDestination::class.qualifiedName.toString(),
         title = R.string.financialPosition,
         selectedIcon = AppIcons.MoneyFilled,
         unselectedIcon = AppIcons.MoneyOutlined,
     )
 
-    object NewsFeed : TopLevelDestination(
-        route = NEWSFEED_ROUTE,
+    data object NewsFeed : TopLevelDestination(
+        route = NewsFeedDestination::class.qualifiedName.toString(),
         title = R.string.news,
         selectedIcon = AppIcons.NewsFilled,
         unselectedIcon = AppIcons.NewsOutlined,

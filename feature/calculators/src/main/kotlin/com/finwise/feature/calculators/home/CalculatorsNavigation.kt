@@ -1,19 +1,16 @@
 package com.finwise.feature.calculators.home
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import kotlinx.serialization.Serializable
 
-const val CALCULATORS_ROUTE = "calculators"
-
-fun NavController.navigateToCalculatorsScreen() {
-    navigate(CALCULATORS_ROUTE)
-}
+@Serializable
+object CalculatorsDestination
 
 fun NavGraphBuilder.calculatorsScreen(
     onNavigateToCompoundInterest: () -> Unit,
 ) {
-    composable(route = CALCULATORS_ROUTE) {
+    composable<CalculatorsDestination> {
         CalculatorsScreen(
             onCompoundInterestButtonClicked = onNavigateToCompoundInterest
         )

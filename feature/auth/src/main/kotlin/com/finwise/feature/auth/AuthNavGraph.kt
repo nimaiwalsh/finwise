@@ -2,25 +2,26 @@ package com.finwise.feature.auth
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.navigation
-import com.finwise.feature.auth.login.LOGIN_ROUTE
+import androidx.navigation.compose.navigation
+import com.finwise.feature.auth.login.LoginDestination
 import com.finwise.feature.auth.login.loginScreen
-import com.finwise.feature.auth.signup.navigateToSignup
+import com.finwise.feature.auth.signup.SignupDestination
 import com.finwise.feature.auth.signup.signupScreen
+import kotlinx.serialization.Serializable
 
-const val AUTH_GRAPH = "auth-graph"
+@Serializable
+object AuthGraph
 
 fun NavGraphBuilder.authNavGraph(
     navController: NavHostController,
     navigateToMain: () -> Unit,
 ) {
-    navigation(
-        route = AUTH_GRAPH,
-        startDestination = LOGIN_ROUTE,
+    navigation<AuthGraph>(
+        startDestination = LoginDestination,
     ) {
         loginScreen(
             onNavigateToMain = navigateToMain,
-            onNavigateToSignUp = { navController.navigateToSignup() },
+            onNavigateToSignUp = { navController.navigate(SignupDestination) },
         )
 
         signupScreen(

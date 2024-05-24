@@ -5,19 +5,20 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import com.finwise.feature.calculators.calculatorsNavGraph
 import com.finwise.feature.financialposition.financialPositionNavGraph
-import com.finwise.feature.home.HOME_GRAPH_ROUTE
-import com.finwise.feature.home.homeNavGraph
-import com.finwise.feature.newsfeed.newsFeedNavGraph
+import com.finwise.feature.HomeGraph
+import com.finwise.feature.homeNavGraph
+import com.finwise.feature.newsFeedNavGraph
+import kotlinx.serialization.Serializable
 
-const val MAIN_GRAPH = "main-graph"
+@Serializable
+object MainGraph
 
 fun NavGraphBuilder.mainNavGraph(
     navController: NavHostController,
     navigateToLogin: () -> Unit,
 ) {
-    navigation(
-        route = MAIN_GRAPH,
-        startDestination = HOME_GRAPH_ROUTE,
+    navigation<MainGraph>(
+        startDestination = HomeGraph,
     ) {
 
         homeNavGraph(

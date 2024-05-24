@@ -5,17 +5,18 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import com.finwise.feature.financialposition.details.financialPositionDetail
 import com.finwise.feature.financialposition.details.navigateToFinancialPositionDetails
-import com.finwise.feature.financialposition.overview.FINANCIAL_POSITION_ROUTE
+import com.finwise.feature.financialposition.overview.FinancialPositionDestination
 import com.finwise.feature.financialposition.overview.financialPosition
+import kotlinx.serialization.Serializable
 
-const val FINANCIAL_POSITION_GRAPH = "financial-position-graph"
+@Serializable
+object FinancialPositionGraph
 
 fun NavGraphBuilder.financialPositionNavGraph(
     navController: NavHostController,
 ) {
-    navigation(
-        route = FINANCIAL_POSITION_GRAPH,
-        startDestination = FINANCIAL_POSITION_ROUTE,
+    navigation<FinancialPositionGraph>(
+        startDestination = FinancialPositionDestination,
     ) {
         financialPosition(navController::navigateToFinancialPositionDetails)
 
