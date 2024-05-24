@@ -14,6 +14,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             pluginManager.apply {
                 apply("finwise.library")
                 apply("finwise.hilt")
+                apply("org.jetbrains.kotlin.plugin.serialization")
             }
 
             extensions.configure<LibraryExtension> {
@@ -41,6 +42,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewModelKtx").get())
 
                 add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
+                add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
             }
         }
     }
