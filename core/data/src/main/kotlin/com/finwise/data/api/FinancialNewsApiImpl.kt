@@ -1,7 +1,11 @@
 package com.finwise.data.api
 
 import com.finwise.core.data.BuildConfig
+import javax.inject.Inject
 
-class FinancialNewsApiImpl {
-    val apiKey = BuildConfig.MARKETAUX_API_KEY
+class FinancialNewsApiImpl @Inject constructor() : FinancialNewsApi {
+
+    private val apiKey = BuildConfig.MARKETAUX_API_KEY
+
+    override fun getNews(): String = apiKey
 }

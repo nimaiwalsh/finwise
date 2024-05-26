@@ -1,4 +1,4 @@
-package com.finwise.data.app
+package com.finwise.data.repository
 
 import com.finwise.core.datastore.app.AppPreferences
 import com.finwise.core.model.config.Environment

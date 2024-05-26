@@ -1,5 +1,8 @@
 package com.finwise.feature.newsfeed
 
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
@@ -9,6 +12,9 @@ object NewsFeedDestination
 
 fun NavGraphBuilder.newsfeedScreen() {
     composable<NewsFeedDestination> {
-        NewsfeedScreen()
+        val viewModel: NewsFeedViewModel = hiltViewModel()
+        val state by viewModel.state.collectAsState()
+
+        NewsfeedScreen(news = state.news)
     }
 }

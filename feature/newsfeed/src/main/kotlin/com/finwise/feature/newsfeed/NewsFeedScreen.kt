@@ -19,7 +19,9 @@ import androidx.compose.ui.unit.dp
 import com.finwise.core.ui.theme.FinWiseAppTheme
 
 @Composable
-fun NewsfeedScreen() {
+fun NewsfeedScreen(
+    news: String,
+) {
     FinWiseAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -38,7 +40,7 @@ fun NewsfeedScreen() {
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {},
                 ) {
-                    Text("NewsFeedItem")
+                    Text("apiKey: $news")
                 }
             }
         }
@@ -49,6 +51,6 @@ fun NewsfeedScreen() {
 @Composable
 fun Preview_NewsFeedScreen() {
     FinWiseAppTheme {
-        NewsfeedScreen()
+        NewsfeedScreen("News item")
     }
 }
