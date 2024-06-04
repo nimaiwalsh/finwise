@@ -12,7 +12,7 @@ class FinancialPositionDetailViewModel @Inject constructor(
 
     // accessing a nav arg from saved state handle
     private val financialPositionId: String = checkNotNull(
-        savedStateHandle[FinancialPositionDetailsArgParams.FINANCIAL_POSITION_ID]
+        savedStateHandle[FinancialPositionDetailDestination::financialPositionId.name]
     )
 
     val title = "Financial position details: $financialPositionId"
