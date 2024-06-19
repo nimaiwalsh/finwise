@@ -1,6 +1,6 @@
 package com.finwise.data.repository
 
-import com.finwise.data.api.FinancialNewsApi
+import com.finwise.data.remote.api.FinancialNewsApi
 import javax.inject.Inject
 
 class FinancialNewsRepositoryImpl @Inject constructor(

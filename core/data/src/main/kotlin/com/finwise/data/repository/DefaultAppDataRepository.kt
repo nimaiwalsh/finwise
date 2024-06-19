@@ -1,6 +1,6 @@
 package com.finwise.data.repository
 
-import com.finwise.core.datastore.app.AppPreferences
+import com.finwise.data.preferences.AppPreferences
 import com.finwise.core.model.config.Environment
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

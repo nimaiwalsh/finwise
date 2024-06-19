@@ -24,8 +24,9 @@ android {
 
 dependencies {
     implementation(project(":core:model"))
-    implementation(project(":core:datastore"))
 
+    implementation(libs.androidx.dataStore.core)
+    implementation(libs.androidx.dataStore.preferences)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
 

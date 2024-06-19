@@ -1,4 +1,4 @@
-package com.finwise.data.api
+package com.finwise.data.remote.api
 
 import com.finwise.core.data.BuildConfig
 import javax.inject.Inject

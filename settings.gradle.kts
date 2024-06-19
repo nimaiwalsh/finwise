@@ -18,7 +18,6 @@ dependencyResolutionManagement {
 rootProject.name = "finwise"
 include(":app")
 include(":core:data")
-include(":core:datastore")
 include(":core:testing")
 include(":core:model")
 include(":core:ui")

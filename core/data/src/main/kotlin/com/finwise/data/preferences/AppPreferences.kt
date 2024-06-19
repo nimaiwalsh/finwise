@@ -1,4 +1,4 @@
-package com.finwise.core.datastore.app
+package com.finwise.data.preferences
 
 import kotlinx.coroutines.flow.Flow
 

@@ -1,4 +1,4 @@
-package com.finwise.data.api
+package com.finwise.data.remote.api
 
 interface FinancialNewsApi {
     fun getNews(): String
