@@ -23,12 +23,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:model"))
-
     implementation(libs.androidx.dataStore.core)
     implementation(libs.androidx.dataStore.preferences)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.okHttp3.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
 
+    implementation(project(":core:model"))
     testImplementation(project(":core:testing"))
 }

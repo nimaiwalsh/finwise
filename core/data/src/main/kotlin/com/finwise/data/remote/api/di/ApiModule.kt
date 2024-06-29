@@ -13,5 +13,5 @@ import javax.inject.Singleton
 abstract class ApiModule {
     @Binds
     @Singleton
-    abstract fun bindFinancialNewsApis(financialNewsApi: FinancialNewsApiImpl): FinancialNewsApi
+    abstract fun bindFinancialNewsApi(financialNewsApi: FinancialNewsApiImpl): FinancialNewsApi
 }
