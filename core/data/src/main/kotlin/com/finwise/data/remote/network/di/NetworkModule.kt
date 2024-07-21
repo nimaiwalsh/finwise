@@ -1,5 +1,6 @@
 package com.finwise.data.remote.network.di
 
+import com.finwise.data.remote.api.FinancialNewsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -20,7 +22,7 @@ object NetworkModule {
 
     @Provides
     @Named("BaseUrl")
-    fun provideBaseUrl() = "url"
+    fun provideBaseUrl() = "https://api.marketaux.com/v1/"
 
     @Provides
     @Singleton
@@ -37,6 +39,19 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    fun provideOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .callTimeout(1, TimeUnit.MINUTES)
+            .readTimeout(1, TimeUnit.MINUTES)
+            .writeTimeout(1, TimeUnit.MINUTES)
+            .build()
+    }
+
+    @Singleton
+    @Provides
     fun provideRetrofit(
         @Named("BaseUrl") baseUrl: String,
         okHttpClient: OkHttpClient,
@@ -48,4 +63,9 @@ object NetworkModule {
             .baseUrl(baseUrl)
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideFinancialNewsService(retrofit: Retrofit): FinancialNewsApi =
+        retrofit.create(FinancialNewsApi::class.java)
 }
