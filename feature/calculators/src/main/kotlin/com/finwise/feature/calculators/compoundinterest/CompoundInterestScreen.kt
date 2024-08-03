@@ -21,8 +21,7 @@ internal fun CompoundInterestCalculatorScreen(welcomeText: String) {
     Column(
         modifier = Modifier
             .padding(24.dp)
-            .fillMaxSize()
-            .wrapContentSize(),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

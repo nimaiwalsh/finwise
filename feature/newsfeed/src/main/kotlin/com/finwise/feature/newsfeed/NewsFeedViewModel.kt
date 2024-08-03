@@ -3,7 +3,6 @@ package com.finwise.feature.newsfeed
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.finwise.data.repository.GetFinancialNews
-import com.finwise.data.repository.GetFinancialNews.Companion.invoke
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,8 +24,7 @@ class NewsFeedViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val news = getNews()
-            _state.update { it.copy(news = news) }
+            _state.update { it.copy(news = "news") }
         }
     }
 }
