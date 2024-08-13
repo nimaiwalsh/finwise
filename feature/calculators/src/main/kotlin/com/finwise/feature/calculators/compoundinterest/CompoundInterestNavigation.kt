@@ -3,7 +3,6 @@ package com.finwise.feature.calculators.compoundinterest
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.dialog
 import kotlinx.serialization.Serializable
 
 @Serializable
