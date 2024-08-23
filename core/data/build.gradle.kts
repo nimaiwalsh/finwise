@@ -3,6 +3,7 @@ import java.util.Properties
 
 plugins {
     id("finwise.library")
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 // Add secret keys

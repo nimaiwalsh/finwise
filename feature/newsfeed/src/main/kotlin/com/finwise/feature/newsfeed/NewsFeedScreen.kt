@@ -40,7 +40,7 @@ fun NewsfeedScreen(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {},
                 ) {
-                    Text("apiKey: $news")
+                    Text(news)
                 }
             }
         }

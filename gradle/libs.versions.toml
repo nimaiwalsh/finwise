@@ -79,4 +79,4 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 androidx-navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-serialization = { id ="org.jetbrains.kotlin.plugin.serialization", version.ref= "kotlin"}
+kotlinx-serialization = { id ="org.jetbrains.kotlin.plugin.serialization", version.ref= "kotlin"}

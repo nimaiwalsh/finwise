@@ -1,6 +1,5 @@
 package com.finwise.data.remote.network.di
 
-import com.finwise.data.remote.api.FinancialNewsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,8 +33,10 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideConverterFactory(): Converter.Factory =
-        Json.asConverterFactory("application/json".toMediaType())
+    fun provideConverterFactory(): Converter.Factory {
+        val networkJson = Json { ignoreUnknownKeys = true }
+        return networkJson.asConverterFactory("application/json".toMediaType())
+    }
 
     @Singleton
     @Provides
@@ -63,9 +64,4 @@ object NetworkModule {
             .baseUrl(baseUrl)
             .build()
     }
-
-    @Singleton
-    @Provides
-    fun provideFinancialNewsService(retrofit: Retrofit): FinancialNewsApi =
-        retrofit.create(FinancialNewsApi::class.java)
 }
