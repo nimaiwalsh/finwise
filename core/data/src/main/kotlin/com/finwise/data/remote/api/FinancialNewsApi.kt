@@ -11,7 +11,6 @@ interface FinancialNewsApi {
     suspend fun getNews(): AllNewsResponse?
 }
 
-// /v1/news/all?countries=AU&limit=3&filter_entities=true&api_token=3AZS6BATbBLYLxlwkL2yaybT5CcLOzxswdLXkzkw
 interface StockNewsService {
     @POST("/v1/news/all")
     suspend fun newsAll(
