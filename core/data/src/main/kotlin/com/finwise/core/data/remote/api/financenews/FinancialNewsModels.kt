@@ -1,25 +1,8 @@
-package com.finwise.data.remote.api
+package com.finwise.core.data.remote.api.financenews
 
-import com.finwise.core.data.BuildConfig
+import com.finwise.core.model.financenews.NewsItem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import retrofit2.Response
-import retrofit2.http.POST
-import retrofit2.http.Query
-
-interface FinancialNewsApi {
-    suspend fun getNews(): AllNewsResponse?
-}
-
-interface StockNewsService {
-    @POST("/v1/news/all")
-    suspend fun newsAll(
-        @Query("countries") countries: String = "AU",
-        @Query("limit") limit: Int = 3,
-        @Query("filter_entities") filterEntities: Boolean = true,
-        @Query("api_token") apiToken: String = BuildConfig.MARKETAUX_API_KEY,
-    ): Response<AllNewsResponse>
-}
 
 @Serializable
 data class AllNewsResponse(
@@ -38,5 +21,12 @@ data class AllNewsResponse(
     data class NewsItem(
         @SerialName("uuid") val id: String,
         @SerialName("title") val title: String,
+    )
+}
+
+fun AllNewsResponse.toDomain(): List<NewsItem> = this.data.map { item ->
+    NewsItem(
+        id = item.id,
+        title = item.title
     )
 }

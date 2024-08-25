@@ -1,7 +1,7 @@
-package com.finwise.data.repository.di
+package com.finwise.core.data.repository.di
 
-import com.finwise.data.repository.FinancialNewsRepositoryImpl
-import com.finwise.data.repository.GetFinancialNews
+import com.finwise.core.data.repository.financenews.FinancialNewsRepositoryImpl
+import com.finwise.core.model.financenews.GetFinancialNews
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

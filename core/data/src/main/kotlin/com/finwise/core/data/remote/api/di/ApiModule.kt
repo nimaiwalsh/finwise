@@ -1,7 +1,7 @@
-package com.finwise.data.remote.api.di
+package com.finwise.core.data.remote.api.di
 
-import com.finwise.data.remote.api.FinancialNewsApi
-import com.finwise.data.remote.api.FinancialNewsApiImpl
+import com.finwise.core.data.remote.api.financenews.FinancialNewsApi
+import com.finwise.core.data.remote.api.financenews.FinancialNewsApiImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

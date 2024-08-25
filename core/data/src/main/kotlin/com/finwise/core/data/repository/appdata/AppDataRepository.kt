@@ -1,4 +1,4 @@
-package com.finwise.data.repository
+package com.finwise.core.data.repository.appdata
 
 import com.finwise.core.model.config.Environment
 import kotlinx.coroutines.flow.Flow

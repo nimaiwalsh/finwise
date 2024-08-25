@@ -15,6 +15,6 @@ fun NavGraphBuilder.newsfeedScreen() {
         val viewModel: NewsFeedViewModel = hiltViewModel()
         val state by viewModel.state.collectAsState()
 
-        NewsfeedScreen(news = state.newsItems.first())
+        NewsfeedScreen(newsItems = state.newsItems)
     }
 }

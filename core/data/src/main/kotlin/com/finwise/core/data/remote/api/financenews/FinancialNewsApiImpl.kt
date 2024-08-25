@@ -1,4 +1,4 @@
-package com.finwise.data.remote.api
+package com.finwise.core.data.remote.api.financenews
 
 import android.util.Log
 import retrofit2.Retrofit
@@ -8,7 +8,7 @@ class FinancialNewsApiImpl @Inject constructor(
     retrofit: Retrofit,
 ) : FinancialNewsApi {
 
-    private val newsService = retrofit.create(StockNewsService::class.java)
+    private val newsService = retrofit.create(FinanceNewsService::class.java)
 
     override suspend fun getNews(): AllNewsResponse? {
         // TODO create an interceptor to return a kotlin Result and handle errors

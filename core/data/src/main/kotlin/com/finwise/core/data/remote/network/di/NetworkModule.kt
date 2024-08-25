@@ -1,4 +1,4 @@
-package com.finwise.data.remote.network.di
+package com.finwise.core.data.remote.network.di
 
 import dagger.Module
 import dagger.Provides
