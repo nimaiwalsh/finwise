@@ -1,4 +1,4 @@
-package com.finwise.data.preferences
+package com.finwise.data.local.preferences
 
 import kotlinx.coroutines.flow.Flow
 
